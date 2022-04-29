@@ -1,0 +1,29 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Jobs {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  company    String
+  /// Multiple data types found: String: 66.7%, Array(String): 33.3% out of 3 sampled entries
+  condition  Json?
+  contract   String
+  image      String
+  job        String
+  location   String
+  tags       String[]
+  timePosted String
+  Person   Person @relation(fields: [personId], references: [id])
+  personId String @db.ObjectId
+}
+
+model Person {
+  id   String @id @default(auto()) @map("_id") @db.ObjectId
+  name String
+  jobs Jobs[]
+}

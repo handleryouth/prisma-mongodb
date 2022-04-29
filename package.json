@@ -1,0 +1,12 @@
+{
+  "name": "prisma",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@prisma/client": "^3.13.0",
+    "prisma": "^3.13.0",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.4"
+  }
+}
